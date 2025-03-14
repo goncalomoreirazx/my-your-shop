@@ -1,0 +1,32 @@
+<div class="products-container">
+    <div class="container">
+      <div class="products-header">
+        <h1>All Products</h1>
+        <div class="category-filter">
+          <button class="filter-btn" [class.active]="selectedCategory === ''" (click)="filterByCategory('')">All</button>
+          @for (category of categories; track category) {
+            <button class="filter-btn" [class.active]="selectedCategory === category" (click)="filterByCategory(category)">{{ category }}</button>
+          }
+        </div>
+      </div>
+  
+      <div class="products-grid">
+        @for (product of filteredProducts; track product.id) {
+          <div class="product-card">
+            <div class="product-image">
+              <img [src]="product.image" [alt]="product.name">
+            </div>
+            <div class="product-info">
+              <h3>{{ product.name }}</h3>
+              <span class="product-category">{{ product.category }}</span>
+              <p class="price">${{ product.price }}</p>
+              <div class="product-actions">
+                <button class="btn-primary">Add to Cart</button>
+                <button class="btn-outline">View Details</button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
