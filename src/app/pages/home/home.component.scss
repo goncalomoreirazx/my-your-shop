@@ -1,0 +1,222 @@
+.home-container {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  
+    // Hero section
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1600x600');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+  
+      .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+  
+        h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+  
+        p {
+          font-size: 1.2rem;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  
+    // Featured Products section
+    .featured-products {
+      padding: 4rem 0;
+      background-color: #f8f9fa;
+  
+      h2 {
+        text-align: center;
+        margin-bottom: 2.5rem;
+        font-size: 2rem;
+        color: #333;
+      }
+  
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+  
+      .product-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+  
+        &:hover {
+          transform: translateY(-10px);
+        }
+  
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+  
+        .product-info {
+          padding: 1.5rem;
+  
+          h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+          }
+  
+          .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  
+    // About section
+    .about {
+      padding: 4rem 0;
+  
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+  
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+      }
+  
+      .about-text {
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+          color: #333;
+        }
+  
+        p {
+          margin-bottom: 1.5rem;
+          line-height: 1.6;
+          color: #6c757d;
+        }
+      }
+  
+      .about-image {
+        img {
+          width: 100%;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  
+    // Newsletter section
+    .newsletter {
+      padding: 4rem 0;
+      text-align: center;
+      background-color: #0066cc;
+      color: white;
+  
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      .newsletter-form {
+        display: flex;
+        max-width: 500px;
+        margin: 0 auto;
+  
+        @media (max-width: 576px) {
+          flex-direction: column;
+        }
+  
+        input {
+          flex: 1;
+          padding: 0.75rem 1rem;
+          border: none;
+          border-radius: 4px 0 0 4px;
+          font-size: 1rem;
+  
+          @media (max-width: 576px) {
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+          }
+        }
+  
+        button {
+          border-radius: 0 4px 4px 0;
+          padding: 0.75rem 1.5rem;
+          
+          @media (max-width: 576px) {
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+  
+  // Button styles
+  .btn-primary {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #5a6268;
+    }
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: #0066cc;
+    border: 1px solid #0066cc;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  
+    &:hover {
+      background-color: #0066cc;
+      color: white;
+    }
+  }

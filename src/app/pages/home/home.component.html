@@ -1,0 +1,62 @@
+<div class="home-container">
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Welcome to My Your Shop</h1>
+          <p>Discover amazing products at unbeatable prices.</p>
+          <button class="btn-primary">Shop Now</button>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Featured Products section -->
+    <section class="featured-products">
+      <div class="container">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+          @for (product of featuredProducts; track product.id) {
+            <div class="product-card">
+              <img [src]="product.image" [alt]="product.name">
+              <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <p class="price">${{ product.price }}</p>
+                <button class="btn-secondary">Add to Cart</button>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  
+    <!-- About section -->
+    <section class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>About Us</h2>
+            <p>
+              My Your Shop is dedicated to providing high-quality products and exceptional customer service.
+              Since our founding, we've been committed to offering the best shopping experience for our customers.
+            </p>
+            <button class="btn-outline">Learn More</button>
+          </div>
+          <div class="about-image">
+            <img src="https://via.placeholder.com/500x300" alt="About Us">
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Newsletter section -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with our latest products and offers.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address">
+          <button class="btn-primary">Subscribe</button>
+        </div>
+      </div>
+    </section>
+  </div>
