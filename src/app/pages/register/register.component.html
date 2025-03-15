@@ -1,0 +1,125 @@
+<!-- src/app/pages/register/register.component.html -->
+<div class="register-container">
+    <div class="container">
+      <div class="register-card">
+        <div class="register-header">
+          <h1>Create an Account</h1>
+          <p>Join our community and start shopping today</p>
+        </div>
+        
+        <div class="register-body">
+          <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input 
+                  type="text" 
+                  id="firstName" 
+                  name="firstName" 
+                  [(ngModel)]="user.firstName" 
+                  required
+                  placeholder="Enter your first name"
+                  #firstNameInput="ngModel">
+                <div class="error-message" *ngIf="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)">
+                  <span *ngIf="firstNameInput.errors?.['required']">First name is required</span>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input 
+                  type="text" 
+                  id="lastName" 
+                  name="lastName" 
+                  [(ngModel)]="user.lastName" 
+                  required
+                  placeholder="Enter your last name"
+                  #lastNameInput="ngModel">
+                <div class="error-message" *ngIf="lastNameInput.invalid && (lastNameInput.dirty || lastNameInput.touched)">
+                  <span *ngIf="lastNameInput.errors?.['required']">Last name is required</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                [(ngModel)]="user.email" 
+                required 
+                email
+                placeholder="Enter your email"
+                #emailInput="ngModel">
+              <div class="error-message" *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+                <span *ngIf="emailInput.errors?.['required']">Email is required</span>
+                <span *ngIf="emailInput.errors?.['email']">Please enter a valid email</span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                [(ngModel)]="user.password" 
+                required 
+                minlength="8"
+                placeholder="Enter your password"
+                #passwordInput="ngModel"
+                (input)="checkPasswordsMatch()">
+              <div class="error-message" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+                <span *ngIf="passwordInput.errors?.['required']">Password is required</span>
+                <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 8 characters</span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input 
+                type="password" 
+                id="confirmPassword" 
+                name="confirmPassword" 
+                [(ngModel)]="user.confirmPassword" 
+                required
+                placeholder="Confirm your password"
+                #confirmPasswordInput="ngModel"
+                (input)="checkPasswordsMatch()">
+              <div class="error-message" *ngIf="!passwordsMatch && user.confirmPassword">
+                Passwords do not match
+              </div>
+            </div>
+            
+            <div class="form-group checkbox">
+              <input 
+                type="checkbox" 
+                id="agreeTerms" 
+                name="agreeTerms" 
+                [(ngModel)]="user.agreeTerms"
+                required
+                #agreeTermsInput="ngModel">
+              <label for="agreeTerms">
+                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+              </label>
+              <div class="error-message" *ngIf="agreeTermsInput.invalid && (agreeTermsInput.dirty || agreeTermsInput.touched)">
+                <span *ngIf="agreeTermsInput.errors?.['required']">You must agree to the terms</span>
+              </div>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="btn-primary register-button" 
+              [disabled]="registerForm.invalid || !passwordsMatch">
+              Create Account
+            </button>
+          </form>
+        </div>
+        
+        <div class="register-footer">
+          <p>Already have an account? <a routerLink="/">Log In</a></p>
+        </div>
+      </div>
+    </div>
+  </div>

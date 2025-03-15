@@ -12,8 +12,10 @@
         </ul>
       </nav>
       <div class="user-actions">
-        <a routerLink="/login">Log In</a>
-        <a routerLink="/register">Register</a>
-      </div>
+        <a (click)="toggleLoginModal()" class="action-link">Log In</a>
+      <a routerLink="/register" class="action-link">Register</a>
     </div>
-  </header>
+  </div>
+</header>
+
+<app-login-modal *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login-modal>

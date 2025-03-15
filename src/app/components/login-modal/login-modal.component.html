@@ -1,0 +1,69 @@
+<!-- src/app/components/login-modal/login-modal.component.html -->
+<div class="modal-overlay" (click)="onClose()">
+    <div class="modal-container" (click)="stopPropagation($event)">
+      <div class="modal-header">
+        <h2>Login to Your Account</h2>
+        <button class="close-button" (click)="onClose()">×</button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="email" 
+              required 
+              email
+              placeholder="Enter your email"
+              #emailInput="ngModel">
+            <div class="error-message" *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+              <span *ngIf="emailInput.errors?.['required']">Email is required</span>
+              <span *ngIf="emailInput.errors?.['email']">Please enter a valid email</span>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              [(ngModel)]="password" 
+              required 
+              minlength="6"
+              placeholder="Enter your password"
+              #passwordInput="ngModel">
+            <div class="error-message" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+              <span *ngIf="passwordInput.errors?.['required']">Password is required</span>
+              <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters</span>
+            </div>
+          </div>
+          
+          <div class="form-group checkbox">
+            <input 
+              type="checkbox" 
+              id="rememberMe" 
+              name="rememberMe" 
+              [(ngModel)]="rememberMe">
+            <label for="rememberMe">Remember me</label>
+          </div>
+          
+          <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="btn-primary login-button" 
+            [disabled]="loginForm.invalid">
+            Log In
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <p>Don't have an account? <a routerLink="/register" (click)="onClose()">Register</a></p>
+      </div>
+    </div>
+  </div>

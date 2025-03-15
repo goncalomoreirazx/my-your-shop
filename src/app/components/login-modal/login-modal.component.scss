@@ -1,0 +1,164 @@
+/* src/app/components/login-modal/login-modal.component.scss */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+  }
+  
+  .modal-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s;
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    
+    h2 {
+      margin: 0;
+      color: #333;
+      font-size: 1.5rem;
+    }
+    
+    .close-button {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6c757d;
+      
+      &:hover {
+        color: #343a40;
+      }
+    }
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #333;
+      }
+      
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        
+        &:focus {
+          outline: none;
+          border-color: #0066cc;
+          box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+  
+        &.ng-invalid.ng-touched {
+          border-color: #dc3545;
+        }
+      }
+      
+      &.checkbox {
+        display: flex;
+        align-items: center;
+        
+        input {
+          width: auto;
+          margin-right: 0.5rem;
+        }
+        
+        label {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    .error-message {
+      color: #dc3545;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+    
+    .forgot-password {
+      text-align: right;
+      margin-bottom: 1.5rem;
+      
+      a {
+        color: #0066cc;
+        text-decoration: none;
+        font-size: 0.875rem;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    .login-button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #0066cc;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      
+      &:hover {
+        background-color: #0056b3;
+      }
+      
+      &:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
+  .modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+    
+    p {
+      margin: 0;
+      color: #6c757d;
+      
+      a {
+        color: #0066cc;
+        text-decoration: none;
+        font-weight: 500;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
